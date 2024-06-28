@@ -1,3 +1,4 @@
+import { ListCard } from "./ListCard";
 import {  SearchBar } from "./Search";
 
 export function Wrapper(){
@@ -9,6 +10,7 @@ hello
         </div>
         <div>
             <SearchBar/>
+            <ListCard/>
         </div>
 
     </div>

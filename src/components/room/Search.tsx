@@ -1,5 +1,5 @@
 
-import { Camera, Search } from "lucide-react";
+import { Search } from "lucide-react";
 
 export function SearchBar(){
 
