@@ -7,7 +7,7 @@ export function ListCard() {
   const wss = useRecoilValue(wsState);
 
   return (
-    <div className=" max-w-2xl ">
+    <div className=" max-w-xl ">
       {searchMeta.map((content) => {
         const publishedAtDate = new Date(content.snippet.publishedAt);
         const timeAgo = formatDistanceToNow(publishedAtDate, {
@@ -29,7 +29,7 @@ export function ListCard() {
               height={content.snippet.thumbnails.default.height}
               width={content.snippet.thumbnails.default.width}
             />
-            <div className=" px-2 flex flex-col">
+            <div className=" ps-2 flex flex-col">
               <span className=" text-md">{content.snippet.title}</span>
               <span className=" text-xs py-1 font-light">{timeAgo}</span>
             </div>
