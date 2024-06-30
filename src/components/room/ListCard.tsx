@@ -17,8 +17,9 @@ export function ListCard() {
           <div
             key={content.id.videoId}
             onClick={() => {
-              setVideoId(content.id.videoId || "2g811Eo7K8U");
-              wss?.send(content.id.videoId || "2g811Eo7K8U");
+              const videoId = content.id.videoId || "2g811Eo7K8U";
+              setVideoId(videoId);
+              wss?.send(JSON.stringify({ type: "videoId", videoId }));
             }}
             className=" flex  p-3 text-start cursor-pointer hover:bg-slate-900"
           >
