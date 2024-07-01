@@ -3,8 +3,6 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  
-  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,4 +18,26 @@
     background-color: white;
     color: black;
   }
+}
+/* styles.css */
+.content-wrapper,
+.form-wrapper {
+  transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+}
+
+.content-wrapper.hide {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.form-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.form-wrapper.show {
+  max-height: 500px; /* Adjust according to your form height */
+  opacity: 1;
 }
