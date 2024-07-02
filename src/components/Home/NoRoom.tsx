@@ -7,7 +7,7 @@ import { Room } from "../../pages/Room";
 export function NoRoom() {
   const [showForm, setShowForm] = useState(false);
   return (
-    <div>
+    <div className=" ">
       <div className={`content-wrapper ${showForm ? "hide" : ""}`}>
         <Illustration />
         <div className=" font-manrope text-3xl font-bold">

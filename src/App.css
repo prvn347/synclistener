@@ -1,13 +1,13 @@
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+
   text-align: center;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: black;
+    /* background-color: black; */
     color: white;
   }
 }
@@ -15,10 +15,11 @@
 /* Light mode */
 @media (prefers-color-scheme: light) {
   body {
-    background-color: white;
+    /* background-color: white; */
     color: black;
   }
 }
+
 /* styles.css */
 .content-wrapper,
 .form-wrapper {
