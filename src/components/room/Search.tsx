@@ -1,5 +1,5 @@
 import { Search } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { searchVideos } from "../../api";
 import { useSetRecoilState } from "recoil";
 import { searchResultState } from "../../store/atoms";
@@ -12,10 +12,22 @@ export function SearchBar() {
     console.log(resp.data.items);
     setSearchResult(resp.data.items);
   };
-
+  const handleHitEnter = () => {
+    const input = document.getElementById("textInput");
+    input?.addEventListener("keypress", (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        document.getElementById("btn")?.click();
+      }
+    });
+  };
+  useEffect(() => {
+    handleHitEnter();
+  }, []);
   return (
     <div className="flex mx-4 ">
       <input
+        id="textInput"
         onChange={(e) => setsearchInput(e.target.value)}
         className="px-4 py-2 rounded-s-3xl w-96  bg-transparent border border-1 border-slate-500 placeholder:text-slate-500 focus:border-blue-500 outline-none placeholder:px-2"
         placeholder="Search "
