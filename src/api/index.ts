@@ -1,5 +1,6 @@
 import axios from "axios";
 import { roomType } from "../types/roomTypes";
+import { postType } from "../components/Auth/Authentication";
 
 // const BASE_URL = process.env.BASE_URL
 // console.log(process.env.BASE_URL)
@@ -27,5 +28,22 @@ export const createRoom = async (roomMeta: roomType) => {
     return resp;
   } catch (error) {
     throw new Error("Something went wrong while creating room");
+  }
+};
+
+export const createUser = async (postMeta: postType) => {
+  try {
+    const resp = await axiosInstance.post("/user/signup", postMeta);
+    return resp;
+  } catch (error) {
+    throw new Error("Something went wrong while creating user");
+  }
+};
+export const findUser = async (postMeta: postType) => {
+  try {
+    const resp = await axiosInstance.post("/user/signin", postMeta);
+    return resp;
+  } catch (error) {
+    throw new Error("Something went wrong while finding user");
   }
 };

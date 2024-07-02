@@ -5,6 +5,7 @@ import { Room } from "./pages/Room";
 import { RecoilRoot } from "recoil";
 import { Home } from "./pages/Home";
 import usePreferredTheme from "./hooks/usePrefferedTheme";
+import { Auth } from "./pages/Auth";
 
 function App() {
   const isDark = usePreferredTheme();
@@ -26,6 +27,8 @@ function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/room/:id" element={<Room />} />
               <Route path="/home" element={<Home />} />
+              <Route path="/signin" element={<Auth type="signin" />} />
+              <Route path="/signup" element={<Auth type="signup" />} />
             </Routes>
           </BrowserRouter>
         </RecoilRoot>

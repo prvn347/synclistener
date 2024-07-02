@@ -1,9 +1,11 @@
-import { Wrapper } from "../components/room/Wrapper";
+import { Wrapper } from "../components/Room/Wrapper";
 
-export function Room(){
-return <div>
-    <div> 
-        <Wrapper/>
+export function Room() {
+  return (
+    <div>
+      <div>
+        <Wrapper />
+      </div>
     </div>
-</div>
+  );
 }
