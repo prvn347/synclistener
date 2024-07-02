@@ -46,7 +46,6 @@ export function Authentication({ type }: { type: "signin" | "signup" }) {
           <LabeledInput
             onchange={(e) => {
               setPostInput({ ...postInput, password: e.target.value });
-              navigate("/home");
             }}
             label="Password"
             type="password"
@@ -65,6 +64,7 @@ export function Authentication({ type }: { type: "signin" | "signup" }) {
           <button
             onClick={async () => {
               const resp = await createUser(postInput);
+              navigate("/home");
             }}
             type="button"
             className="mt-8 w-full text-white  bg-black dark:bg-white dark:text-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-sm text-sm px-5 py-2.5 me-2 mb-2  dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"

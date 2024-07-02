@@ -1,5 +1,5 @@
 import axios from "axios";
-import { roomType } from "../types/roomTypes";
+import { roomMetaType } from "../types/roomTypes";
 import { postType } from "../components/Auth/Authentication";
 
 // const BASE_URL = process.env.BASE_URL
@@ -19,12 +19,10 @@ export const searchVideos = async (query: string) => {
     throw new Error("Something went wrong while searching in");
   }
 };
-export const createRoom = async (roomMeta: roomType) => {
+export const createRoom = async (roomMeta: roomMetaType) => {
   try {
     console.log("room");
-    const resp = await axiosInstance.post("/room/create", {
-      roomMeta,
-    });
+    const resp = await axiosInstance.post("/room/create", roomMeta);
     return resp;
   } catch (error) {
     throw new Error("Something went wrong while creating room");

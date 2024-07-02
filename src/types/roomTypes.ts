@@ -1,4 +1,4 @@
-export type roomType = {
+export type roomMetaType = {
   title: string;
   maxUsers: number;
 };
