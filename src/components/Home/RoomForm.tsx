@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { roomMetaType } from "../../types/roomTypes";
-import { createRoom } from "../../api";
+import { createRoom, joinRoom } from "../../api";
+import { useNavigate } from "react-router-dom";
 
 export enum roomType {
   JOIN,
@@ -14,10 +15,16 @@ export function RoomForm({ Room }: RoomFormProps) {
     title: "",
     maxUsers: 0,
   });
+  const [roomKey, setRoomKey] = useState("");
   const isJoin = Room.Room === roomType.JOIN;
+  const navigate = useNavigate();
+  console.log(isJoin);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const resp = await createRoom(room);
+
+    const resp = isJoin ? await joinRoom(roomKey) : await createRoom(room);
+    const roomId = resp.data.result.roomKey;
+    navigate(`/room/${roomId}`);
     console.log("Form submitted:", resp);
     // Add form submission logic here
   };
@@ -37,10 +44,12 @@ export function RoomForm({ Room }: RoomFormProps) {
           <input
             type="text"
             onChange={(e) =>
-              setRoomMeta((prevState) => ({
-                ...prevState,
-                title: e.target.value,
-              }))
+              isJoin
+                ? setRoomKey(e.target.value)
+                : setRoomMeta((prevState) => ({
+                    ...prevState,
+                    title: e.target.value,
+                  }))
             }
             className="mt-1 p-2 py-2 placeholder:text-sm placeholder:font-manrope block border rounded-md outline-none focus:border-green-300 dark:bg-[#222222]"
             placeholder={isJoin ? "paste your key here" : "eg:homies,theatre"}
