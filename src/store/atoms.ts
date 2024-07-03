@@ -15,3 +15,8 @@ export const wsState = atom<WebSocket | undefined>({
   key: "wsState",
   default: undefined,
 });
+
+export const roomDetailState = atom<ApiResponse | null>({
+  key: "roomDetailState",
+  default: null,
+});

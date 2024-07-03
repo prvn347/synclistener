@@ -6,6 +6,7 @@ import { RecoilRoot } from "recoil";
 import { Home } from "./pages/Home";
 import usePreferredTheme from "./hooks/usePrefferedTheme";
 import { Auth } from "./pages/Auth";
+import { RoomInvite } from "./pages/RoomInvite";
 
 function App() {
   const isDark = usePreferredTheme();
@@ -29,6 +30,7 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/signin" element={<Auth type="signin" />} />
               <Route path="/signup" element={<Auth type="signup" />} />
+              <Route path="/join/:id" element={<RoomInvite />} />
             </Routes>
           </BrowserRouter>
         </RecoilRoot>
