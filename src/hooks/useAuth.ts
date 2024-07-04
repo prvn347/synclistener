@@ -1,18 +1,26 @@
 import { useRecoilState } from "recoil";
 import { userState } from "../store/atoms";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { userDetails } from "../api";
 
 export function useAuth() {
   const [user, setUser] = useRecoilState(userState);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchUser() {
-      const user = await userDetails();
-      setUser(user.data.user);
+      try {
+        const user = await userDetails();
+        setUser(user.data.user);
+      } catch (err: any) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
     }
     fetchUser();
   }, []);
 
-  return user;
+  return { user, loading, error };
 }

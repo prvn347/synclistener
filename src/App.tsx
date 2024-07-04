@@ -30,13 +30,13 @@ function App() {
             <Routes>
               <Route path="/" element={<LandingPage />} />
 
-              <Route element={<ProtectedRoute />}>
-                <Route path="/home" element={<Home />} />
-              </Route>
-              <Route path="/room/:id" element={<Room />} />
               <Route path="/signin" element={<Auth type="signin" />} />
               <Route path="/signup" element={<Auth type="signup" />} />
               <Route path="/join/:id" element={<RoomInvite />} />
+              <Route element={<ProtectedRoute />}>
+                <Route path="/room/:id" element={<Room />} />
+                <Route path="/home" element={<Home />} />
+              </Route>
             </Routes>
           </BrowserRouter>
         </RecoilRoot>

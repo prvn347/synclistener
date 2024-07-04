@@ -2,7 +2,7 @@ import YouTube, { YouTubeProps } from "react-youtube";
 import { useRecoilState } from "recoil";
 import { videoIdState, wsState } from "../../store/atoms";
 import { useEffect, useRef, useState } from "react";
-import { debounce } from "lodash";
+
 declare global {
   interface Window {
     YT: any;
@@ -66,6 +66,7 @@ export function VideoPlayer() {
   const onPlayerPlay: YouTubeProps["onPlay"] = (event) => {
     console.log("play");
     if (playerRef.current) {
+      event.target.playVideo();
       const time = playerRef.current.getCurrentTime();
       socket?.send(JSON.stringify({ type: "play", time }));
     }
@@ -78,18 +79,17 @@ export function VideoPlayer() {
       socket?.send(JSON.stringify({ type: "pause", time }));
     }
   };
-  const onPlayerStateChange: YouTubeProps["onStateChange"] = debounce(
-    (event) => {
-      if (
-        event.data === window.YT.PlayerState.PAUSED ||
-        event.data === window.YT.PlayerState.PLAYING
-      ) {
-        const time = playerRef.current.getCurrentTime();
-        socket?.send(JSON.stringify({ type: "seek", time }));
-      }
-    },
-    1000
-  );
+  const onPlayerStateChange: YouTubeProps["onStateChange"] = (event) => {
+    if (
+      event.data === window.YT.PlayerState.PAUSED ||
+      event.data === window.YT.PlayerState.PLAYING
+    ) {
+      const time = playerRef.current.getCurrentTime();
+      socket?.send(JSON.stringify({ type: "seek", time }));
+    }
+  };
+  0;
+
   useEffect(() => {
     if (playerRef.current) {
       if (play) {
@@ -102,7 +102,7 @@ export function VideoPlayer() {
         playerRef.current.seekTo(currentTime, true);
       }
     }
-  }, [play, currentTime]);
+  }, [play]);
   const opts: YouTubeProps["opts"] = {
     height: "300",
     width: "550",
