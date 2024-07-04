@@ -7,6 +7,8 @@ import { Home } from "./pages/Home";
 import usePreferredTheme from "./hooks/usePrefferedTheme";
 import { Auth } from "./pages/Auth";
 import { RoomInvite } from "./pages/RoomInvite";
+import ProtectedRoute from "./utils/ProtectedRoute";
+import { AppBar } from "./components/Appbar";
 
 function App() {
   const isDark = usePreferredTheme();
@@ -24,10 +26,14 @@ function App() {
       <div className="relative mx-auto h-screen w-full max-w-7xl px-6 md:px-8 lg:px-12">
         <RecoilRoot>
           <BrowserRouter>
+            <AppBar />
             <Routes>
               <Route path="/" element={<LandingPage />} />
+
+              <Route element={<ProtectedRoute />}>
+                <Route path="/home" element={<Home />} />
+              </Route>
               <Route path="/room/:id" element={<Room />} />
-              <Route path="/home" element={<Home />} />
               <Route path="/signin" element={<Auth type="signin" />} />
               <Route path="/signup" element={<Auth type="signup" />} />
               <Route path="/join/:id" element={<RoomInvite />} />

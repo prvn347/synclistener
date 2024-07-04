@@ -61,3 +61,11 @@ export const RoomDetails = async (roomKey: string) => {
     throw new Error("Something went wrong while finding user");
   }
 };
+export const userDetails = async () => {
+  try {
+    const resp = await axiosInstance.get("/user/protected");
+    return resp;
+  } catch (error) {
+    throw new Error("Something went wrong while finding user");
+  }
+};

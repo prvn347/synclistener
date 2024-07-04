@@ -20,3 +20,8 @@ export const roomDetailState = atom<ApiResponse | null>({
   key: "roomDetailState",
   default: null,
 });
+
+export const userState = atom<User | null>({
+  key: "userState",
+  default: null,
+});

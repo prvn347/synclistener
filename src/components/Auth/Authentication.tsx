@@ -63,7 +63,10 @@ export function Authentication({ type }: { type: "signin" | "signup" }) {
           ) : null}
           <button
             onClick={async () => {
-              const resp = await createUser(postInput);
+              const resp =
+                type === "signup"
+                  ? await createUser(postInput)
+                  : await findUser(postInput);
               navigate("/home");
             }}
             type="button"
