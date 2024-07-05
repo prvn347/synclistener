@@ -9,6 +9,7 @@ import { Auth } from "./pages/Auth";
 import { RoomInvite } from "./pages/RoomInvite";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import { AppBar } from "./components/Appbar";
+import { Error } from "./pages/Error";
 
 function App() {
   const isDark = usePreferredTheme();
@@ -28,6 +29,7 @@ function App() {
           <BrowserRouter>
             <AppBar />
             <Routes>
+              <Route path="*" element={<Error />} />
               <Route path="/" element={<LandingPage />} />
 
               <Route path="/signin" element={<Auth type="signin" />} />
