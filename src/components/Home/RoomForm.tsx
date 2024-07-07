@@ -39,9 +39,7 @@ export function RoomForm({ Room }: RoomFormProps) {
       <h2 className="text-2xl font-manrope font-bold mb-4">
         {isJoin ? "Join a Room " : "Create a Room"}
       </h2>
-      <h2 className="text-2xl font-manrope font-bold mb-4">
-        {isJoin ? null : <span>Your key is : {roomKey}</span>}
-      </h2>
+
       <form
         onSubmit={handleSubmit}
         className=" flex  flex-col justify-center items-center"

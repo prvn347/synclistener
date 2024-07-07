@@ -1,11 +1,30 @@
-import { useRecoilValue } from "recoil";
-import { roomDetailState } from "../../store/atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { listenerState, wsState } from "../../store/atoms";
+import { useEffect } from "react";
 
 export function Audience() {
-  const roomDetails = useRecoilValue(roomDetailState);
+  const ws = useRecoilValue(wsState);
+  const [audienceName, setAudienceName] = useRecoilState(listenerState);
+  useEffect(() => {
+    if (ws) {
+      console.log("chekcing for message" + JSON.stringify(audienceName));
+      ws.onmessage = (message) => {
+        console.log("Message received in audience:", message.data);
+
+        const data = JSON.parse(message.data);
+        if (data.type == "joined") {
+          setAudienceName((prevAudienceName) => [
+            ...prevAudienceName,
+            { name: data.name },
+          ]);
+        }
+      };
+    }
+  }, []);
+
   return (
     <div className=" max-w-xl">
-      {roomDetails?.result.users.map((value) => (
+      {audienceName.map((value) => (
         <div className=" flex items-center ">
           <div className="rounded-full h-8 w-8 bg-slate-200 flex justify-center mr-2">
             <div className="flex flex-col justify-center h-full text-xl">

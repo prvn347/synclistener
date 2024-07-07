@@ -16,7 +16,6 @@ export function NoRoom() {
         <div className=" m-4">
           <button
             onClick={() => {
-              console.log("hello");
               setShowForm(true);
             }}
             className=" font-manrope font-semibold  rounded-sm px-6 bg-black dark:bg-white text-white dark:text-black p-2"

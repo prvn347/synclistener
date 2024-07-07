@@ -5,7 +5,7 @@ export function ListCard() {
   const searchMeta = useRecoilValue(searchResultState);
   const setVideoId = useSetRecoilState(videoIdState);
   const wss = useRecoilValue(wsState);
-
+  // console.log(" checking websocket connection" + wss);
   return (
     <div className=" max-w-xl ">
       {searchMeta.map((content) => {
@@ -19,6 +19,7 @@ export function ListCard() {
             onClick={() => {
               const videoId = content.id.videoId || "2g811Eo7K8U";
               setVideoId(videoId);
+              console.log("sending videi id" + videoId);
               wss?.send(JSON.stringify({ type: "videoId", videoId }));
             }}
             className=" flex  p-3 text-start cursor-pointer hover:bg-slate-900"

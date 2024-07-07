@@ -1,7 +1,8 @@
 import YouTube, { YouTubeProps } from "react-youtube";
-import { useRecoilState } from "recoil";
-import { videoIdState, wsState } from "../../store/atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { userState, videoIdState, wsState } from "../../store/atoms";
 import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 
 declare global {
   interface Window {
@@ -10,17 +11,26 @@ declare global {
 }
 
 export function VideoPlayer() {
+  const room = useParams();
+
   const [socket, setSocket] = useRecoilState(wsState);
   const [videoId, setVideoId] = useRecoilState(videoIdState);
   const [play, setPlay] = useState(false);
   const playerRef = useRef<any>(null);
+  const userName = useRecoilValue(userState);
   const [currentTime, setCurrentTime] = useState(0);
   useEffect(() => {
-    // const ws = new WebSocket("ws://localhost:3001");
-    socket.onopen = () => {
+    const ws = new WebSocket("ws://localhost:3001");
+    ws.onopen = () => {
       console.log("Connection established");
+      ws.send(
+        JSON.stringify({
+          type: "join",
+          params: { code: room.id, name: userName?.name },
+        })
+      );
     };
-    socket.onmessage = (message) => {
+    ws.onmessage = (message) => {
       console.log("Message received:", message.data);
       const data = JSON.parse(message.data);
 
@@ -34,8 +44,8 @@ export function VideoPlayer() {
         setVideoId(data.videoId);
       }
     };
-    setSocket(socket);
-    return () => socket.close();
+    setSocket(ws);
+    return () => ws.close();
   }, []);
 
   useEffect(() => {

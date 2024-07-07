@@ -35,10 +35,10 @@ function App() {
 
               <Route path="/signin" element={<Auth type="signin" />} />
               <Route path="/signup" element={<Auth type="signup" />} />
-              <Route path="/join/:id" element={<RoomInvite />} />
               <Route element={<ProtectedRoute />}>
                 <Route path="/room/:id" element={<Room />} />
                 <Route path="/home" element={<Home />} />
+                <Route path="/join/:id" element={<RoomInvite />} />
               </Route>
             </Routes>
           </BrowserRouter>
