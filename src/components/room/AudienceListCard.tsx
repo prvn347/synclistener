@@ -5,22 +5,6 @@ import { useEffect } from "react";
 export function Audience() {
   const ws = useRecoilValue(wsState);
   const [audienceName, setAudienceName] = useRecoilState(listenerState);
-  useEffect(() => {
-    if (ws) {
-      console.log("chekcing for message" + JSON.stringify(audienceName));
-      ws.onmessage = (message) => {
-        console.log("Message received in audience:", message.data);
-
-        const data = JSON.parse(message.data);
-        if (data.type == "joined") {
-          setAudienceName((prevAudienceName) => [
-            ...prevAudienceName,
-            { name: data.name },
-          ]);
-        }
-      };
-    }
-  }, []);
 
   return (
     <div className=" max-w-xl">

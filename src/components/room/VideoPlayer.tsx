@@ -1,6 +1,11 @@
 import YouTube, { YouTubeProps } from "react-youtube";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { userState, videoIdState, wsState } from "../../store/atoms";
+import {
+  listenerState,
+  userState,
+  videoIdState,
+  wsState,
+} from "../../store/atoms";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -16,6 +21,7 @@ export function VideoPlayer() {
   const [socket, setSocket] = useRecoilState(wsState);
   const [videoId, setVideoId] = useRecoilState(videoIdState);
   const [play, setPlay] = useState(false);
+  const [audienceName, setAudienceName] = useRecoilState(listenerState);
   const playerRef = useRef<any>(null);
   const userName = useRecoilValue(userState);
   const [currentTime, setCurrentTime] = useState(0);
@@ -42,6 +48,8 @@ export function VideoPlayer() {
         setCurrentTime(data.time);
       } else if (data.type === "videoId") {
         setVideoId(data.videoId);
+      } else if (data.type === "userList") {
+        setAudienceName(data.users.map((name: any) => ({ name })));
       }
     };
     setSocket(ws);
@@ -63,6 +71,8 @@ export function VideoPlayer() {
           setCurrentTime(data.time);
         } else if (data.type === "videoId") {
           setVideoId(data.videoId);
+        } else if (data.type === "userList") {
+          setAudienceName(data.users.map((name: any) => ({ name })));
         }
       };
     }
