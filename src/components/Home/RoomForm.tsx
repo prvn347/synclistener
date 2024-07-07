@@ -18,20 +18,29 @@ export function RoomForm({ Room }: RoomFormProps) {
   const [roomKey, setRoomKey] = useState("");
   const isJoin = Room.Room === roomType.JOIN;
   const navigate = useNavigate();
-  console.log(isJoin);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const resp = isJoin ? await joinRoom(roomKey) : await createRoom(room);
-    const roomId = resp.data.result.roomKey;
-    navigate(`/room/${roomId}`);
-    console.log("Form submitted:", resp);
+    try {
+      // Handle room creation or joining response
+      const resp = isJoin ? await joinRoom(roomKey) : await createRoom(room);
+      const roomId = resp.data.result.roomKey;
+      navigate(`/room/${roomId}`);
+      console.log("Form submitted:", resp);
+    } catch (error) {
+      console.error("Error while handling form submission:", error);
+      // Handle error appropriately, e.g., display error message to user
+    }
     // Add form submission logic here
   };
   return (
     <div className="form-container bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]  flex flex-col justify-center h-screen ">
       <h2 className="text-2xl font-manrope font-bold mb-4">
         {isJoin ? "Join a Room " : "Create a Room"}
+      </h2>
+      <h2 className="text-2xl font-manrope font-bold mb-4">
+        {isJoin ? null : <span>Your key is : {roomKey}</span>}
       </h2>
       <form
         onSubmit={handleSubmit}

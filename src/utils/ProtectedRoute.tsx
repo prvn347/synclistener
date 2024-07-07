@@ -11,7 +11,7 @@ const ProtectedRoute: React.FC = () => {
       <div>
         <Spinner />
       </div>
-    ); // Or some spinner/loading component
+    );
   }
 
   if (error) {

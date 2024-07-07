@@ -16,11 +16,11 @@ export function VideoPlayer() {
   const playerRef = useRef<any>(null);
   const [currentTime, setCurrentTime] = useState(0);
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:3001");
-    ws.onopen = () => {
+    // const ws = new WebSocket("ws://localhost:3001");
+    socket.onopen = () => {
       console.log("Connection established");
     };
-    ws.onmessage = (message) => {
+    socket.onmessage = (message) => {
       console.log("Message received:", message.data);
       const data = JSON.parse(message.data);
 
@@ -34,8 +34,8 @@ export function VideoPlayer() {
         setVideoId(data.videoId);
       }
     };
-    setSocket(ws);
-    return () => ws.close();
+    setSocket(socket);
+    return () => socket.close();
   }, []);
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUser, findUser } from "../../api";
-
+// add error here for client alert
 export interface postType {
   email: string;
   username?: string;
@@ -63,10 +63,9 @@ export function Authentication({ type }: { type: "signin" | "signup" }) {
           ) : null}
           <button
             onClick={async () => {
-              const resp =
-                type === "signup"
-                  ? await createUser(postInput)
-                  : await findUser(postInput);
+              type === "signup"
+                ? await createUser(postInput)
+                : await findUser(postInput);
               navigate("/home");
             }}
             type="button"

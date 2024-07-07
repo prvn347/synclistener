@@ -25,3 +25,13 @@ export const userState = atom<User | null>({
   key: "userState",
   default: null,
 });
+
+export const roomKeyState = atom({
+  key: "roomKeyState",
+  default: "",
+});
+
+export const messageState = atom<string[]>({
+  key: "messageState",
+  default: [],
+});

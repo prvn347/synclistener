@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { roomDetailState } from "../../store/atoms";
-import { roomType } from "../Home/RoomForm";
 
 export function Audience() {
   const roomDetails = useRecoilValue(roomDetailState);

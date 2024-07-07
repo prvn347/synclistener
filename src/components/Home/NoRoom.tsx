@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Illustration } from "./Illus";
 import { RoomForm } from "./RoomForm";
 import { roomType } from "./RoomForm";
-import { Room } from "../../pages/Room";
 
 export function NoRoom() {
   const [showForm, setShowForm] = useState(false);

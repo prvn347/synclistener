@@ -2,8 +2,6 @@ import axios from "axios";
 import { roomMetaType } from "../types/roomTypes";
 import { postType } from "../components/Auth/Authentication";
 
-// const BASE_URL = process.env.BASE_URL
-// console.log(process.env.BASE_URL)
 export const axiosInstance = axios.create({
   baseURL: "http://localhost:3001",
   withCredentials: true,
