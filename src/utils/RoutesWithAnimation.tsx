@@ -6,6 +6,7 @@ import { Auth } from "../pages/Auth";
 import { Home } from "../pages/Home";
 import { RoomInvite } from "../pages/RoomInvite";
 import { Error } from "../pages/Error";
+import { Waitlist } from "../pages/WaitlistPage";
 
 export function RoutesWithAnimation() {
   const location = useLocation();
@@ -14,6 +15,7 @@ export function RoutesWithAnimation() {
     <Routes location={location} key={location.key}>
       <Route path="*" element={<Error />} />
       <Route path="/" element={<LandingPage />} />
+      <Route path="/waitlist" element={<Waitlist />} />
 
       <Route path="/signin" element={<Auth type="signin" />} />
       <Route path="/signup" element={<Auth type="signup" />} />

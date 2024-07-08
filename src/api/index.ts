@@ -67,3 +67,12 @@ export const userDetails = async () => {
     throw new Error("Something went wrong while finding user");
   }
 };
+
+export const sendWaitlist = async (email: string) => {
+  try {
+    const resp = await axiosInstance.post("/user/waitlist", { email: email });
+    return resp;
+  } catch (error) {
+    throw new Error("Something went wrong while sending waitlist");
+  }
+};
