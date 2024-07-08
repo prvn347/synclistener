@@ -8,7 +8,7 @@ const ProtectedRoute: React.FC = () => {
 
   if (loading) {
     return (
-      <div>
+      <div className=" flex justify-center items-center h-screen ">
         <Spinner />
       </div>
     );

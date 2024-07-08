@@ -84,7 +84,7 @@ export function RoomForm({ Room }: RoomFormProps) {
           type="submit"
           className="bg-black dark:bg-white font-manrope font-semibold dark:text-black text-white p-2 px-3 rounded-md"
         >
-          Submit
+          Create Room
         </button>
       </form>
     </div>
