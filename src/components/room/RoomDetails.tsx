@@ -7,7 +7,7 @@ export function RoomDetailsCard() {
   const roomDetails = useRecoilValue(roomDetailState);
   return (
     <div className=" text-start flex flex-col gap-2">
-      <span className=" font-manrope text-xl  font-semibold pt-2 ">
+      <span className=" font-manrope text-xl text-neutral-100   font-semibold pt-2 ">
         {roomDetails?.result.title}
       </span>
 

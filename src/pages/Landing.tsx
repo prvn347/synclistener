@@ -1,4 +1,16 @@
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+import { useEffect } from "react";
+
 export function LandingPage() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user?.name) {
+      navigate("/home");
+    }
+  }, []);
+
   return (
     <div className=" flex justify-center font-manrope  min-h-screen  ">
       <div className=" flex flex-col justify-center">

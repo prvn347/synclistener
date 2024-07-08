@@ -42,7 +42,7 @@ export function Wrapper() {
             navigator.clipboard.writeText(id as string);
             toast("Code copied!");
           }}
-          className=" flex items-center gap-2 hover:bg-green-800 bg-black dark:bg-white dark:text-black rounded-sm text-sm font-manrope px-2 py-1"
+          className=" flex items-center gap-2 text-white hover:bg-green-800 bg-black dark:bg-white dark:text-black rounded-sm text-sm font-manrope px-2 py-1"
         >
           copy invite code <CopyIcon size={14} />
         </button>

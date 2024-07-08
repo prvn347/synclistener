@@ -32,8 +32,12 @@ export function ListCard() {
               width={content.snippet.thumbnails.default.width}
             />
             <div className=" ps-2 flex flex-col">
-              <span className=" text-md">{content.snippet.title}</span>
-              <span className=" text-xs py-1 font-light">{timeAgo}</span>
+              <span className=" text-md text-neutral-100">
+                {content.snippet.title}
+              </span>
+              <span className=" text-xs py-1 font-light text-neutral-200">
+                {timeAgo}
+              </span>
             </div>
           </div>
         );

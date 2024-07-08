@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUser, findUser } from "../../api";
 import { toast } from "sonner";
@@ -21,9 +21,12 @@ export function Authentication({ type }: { type: "signin" | "signup" }) {
   });
   const navigate = useNavigate();
   const { user, loading, error } = useAuth();
-  if (user?.name) {
-    navigate("/home");
-  }
+  useEffect(() => {
+    if (user?.name) {
+      navigate("/home");
+    }
+  }, []);
+
   return (
     <motion.div
       variants={routeVariants}
