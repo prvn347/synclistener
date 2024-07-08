@@ -15,19 +15,27 @@ export function AppBar() {
           SyncListener
         </Link>
         <div>
-          {user ? (
-            <div className=" font-manrope text-lg animate-pulse">
-              {" "}
-              Hello,{user.name}
-            </div>
-          ) : (
+          <div className=" flex gap-3 items-center">
             <Link
-              className=" py-2 px-4  dark:bg-white dark:text-black rounded-md shadow-lg font-manrope  "
-              to={"/signin"}
+              to={"/join/unkwown"}
+              className=" hover:shadow-[3px_3px_rgba(0,_98,_90,_0.4),_6px_6px_rgba(0,_98,_90,_0.3)] outline-none  focus:shadow-purple-700 px-3 py-2 font-manrope dark:text-black rounded-sm dark:bg-white "
             >
-              Sign In
+              Join Room
             </Link>
-          )}
+            {user ? (
+              <div className=" font-manrope text-lg animate-pulse">
+                {" "}
+                Hello,{user.name}
+              </div>
+            ) : (
+              <Link
+                className=" py-2 px-4  dark:bg-white bg-darkie text-white dark:text-black rounded-sm shadow-lg font-manrope  hover:shadow-[3px_3px_rgba(0,_98,_90,_0.4),_6px_6px_rgba(0,_98,_90,_0.3)] outline-none focus:shadow-purple-700 "
+                to={"/signin"}
+              >
+                Sign In
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ export function ListCard() {
   const wss = useRecoilValue(wsState);
   // console.log(" checking websocket connection" + wss);
   return (
-    <div className=" max-w-xl ">
+    <div className=" max-w-xl max-h-96 scroll-smooth  overflow-y-scroll ">
       {searchMeta.map((content) => {
         const publishedAtDate = new Date(content.snippet.publishedAt);
         const timeAgo = formatDistanceToNow(publishedAtDate, {

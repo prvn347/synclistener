@@ -134,6 +134,10 @@ export function VideoPlayer() {
 
   return (
     <div>
+      <div className=" inline-block px-3 py-1  mb-2 text-xs bg-blue-600 bg-opacity-15 text-white   rounded-2xl border border-blue-800">
+        {" "}
+        Tip:After loading the video play/pause for better synchronization.
+      </div>
       <YouTube
         // className="rounded-md"
         videoId={videoId}

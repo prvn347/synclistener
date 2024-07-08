@@ -45,7 +45,7 @@ export function RoomForm({ Room }: RoomFormProps) {
         className=" flex  flex-col justify-center items-center"
       >
         <div className="mb-4  flex flex-col text-start justify-center w-56">
-          <label className="block dark:text-neutral-200 text-gray-700">
+          <label className="block font-manrope dark:text-neutral-200 text-gray-700">
             {isJoin ? "Enter Room Key" : "Room Name"}
           </label>
           <input
@@ -84,7 +84,7 @@ export function RoomForm({ Room }: RoomFormProps) {
           type="submit"
           className="bg-black dark:bg-white font-manrope font-semibold dark:text-black text-white p-2 px-3 rounded-md"
         >
-          Create Room
+          {isJoin ? "Join Room" : "Create Room"}
         </button>
       </form>
     </div>

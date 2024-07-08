@@ -25,11 +25,11 @@ export function SearchBar() {
     handleHitEnter();
   }, []);
   return (
-    <div className="flex mx-4 ">
+    <div className="flex mx-4 m-3 ">
       <input
         id="textInput"
         onChange={(e) => setsearchInput(e.target.value)}
-        className="px-4 py-2 rounded-s-3xl w-96  bg-transparent border border-1 border-slate-500 placeholder:text-slate-500 focus:border-blue-500 outline-none placeholder:px-2"
+        className="px-4 py-2 rounded-s-3xl  w-96 bg-transparent border border-1 border-slate-500 placeholder:text-slate-500 focus:border-blue-500 outline-none placeholder:px-2"
         placeholder="Search "
         type="text"
       />

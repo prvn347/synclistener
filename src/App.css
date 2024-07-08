@@ -42,3 +42,6 @@
   max-height: 500px; /* Adjust according to your form height */
   opacity: 1;
 }
+.overflow-y-scroll::-webkit-scrollbar {
+  display: none;
+}

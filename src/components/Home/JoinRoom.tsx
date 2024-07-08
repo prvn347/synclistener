@@ -1,13 +1,14 @@
 import { RoomForm, roomType } from "./RoomForm";
-
+import { motion } from "framer-motion";
+import { routeVariants } from "../../utils/AnimationVarient";
 export function JoinRoom() {
   return (
-    <div>
+    <motion.div variants={routeVariants} initial="initial" animate="final">
       <RoomForm
         Room={{
           Room: roomType.JOIN,
         }}
       />
-    </div>
+    </motion.div>
   );
 }
