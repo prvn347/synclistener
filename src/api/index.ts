@@ -4,6 +4,7 @@ import { postType } from "../components/Auth/Authentication";
 
 export const axiosInstance = axios.create({
   baseURL: "https://synclistener-backend.onrender.com",
+
   withCredentials: true,
 });
 
@@ -71,6 +72,14 @@ export const userDetails = async () => {
 export const sendWaitlist = async (email: string) => {
   try {
     const resp = await axiosInstance.post("/user/waitlist", { email: email });
+    return resp;
+  } catch (error) {
+    throw new Error("Something went wrong while sending waitlist");
+  }
+};
+export const pupulateRoom = async () => {
+  try {
+    const resp = await axiosInstance.get("/user/rooms");
     return resp;
   } catch (error) {
     throw new Error("Something went wrong while sending waitlist");

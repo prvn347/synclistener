@@ -35,14 +35,14 @@ export function RoomForm({ Room }: RoomFormProps) {
     // Add form submission logic here
   };
   return (
-    <div className="form-container bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]  flex flex-col justify-center h-screen ">
+    <div className="form-container bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]  flex flex-col justify-center h-full sm:h-screen ">
       <h2 className="text-2xl font-manrope font-bold mb-4">
         {isJoin ? "Join a Room " : "Create a Room"}
       </h2>
 
       <form
         onSubmit={handleSubmit}
-        className=" flex  flex-col justify-center items-center"
+        className=" flex  flex-col justify-center  items-center"
       >
         <div className="mb-4  flex flex-col text-start justify-center w-56">
           <label className="block font-manrope dark:text-neutral-200 text-gray-700">

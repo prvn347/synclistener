@@ -1,6 +1,7 @@
 import { atom } from "recoil";
 import { SearchResult } from "../types/searchResultTypes";
 import { listenerName } from "../types/listenerType";
+import { RoomDetailType } from "../types/userRoomTypes";
 
 export const searchResultState = atom<SearchResult[]>({
   key: "searchResultState", // unique ID (with respect to other atoms/selectors)
@@ -39,5 +40,9 @@ export const messageState = atom<string[]>({
 
 export const listenerState = atom<listenerName[]>({
   key: "listenerState",
+  default: [],
+});
+export const userRoomsState = atom<RoomDetailType[]>({
+  key: "userRoomState",
   default: [],
 });
