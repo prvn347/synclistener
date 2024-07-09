@@ -3,7 +3,7 @@ import { roomMetaType } from "../types/roomTypes";
 import { postType } from "../components/Auth/Authentication";
 
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:3001",
+  baseURL: "https://synclistener-backend.onrender.com",
   withCredentials: true,
 });
 
