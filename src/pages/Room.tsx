@@ -1,4 +1,4 @@
-import { Wrapper } from "../components/Room/Wrapper";
+import { Wrapper } from "../components/Roome/Wrapper";
 import { motion } from "framer-motion";
 import { routeVariants } from "../utils/AnimationVarient";
 export function Room() {
