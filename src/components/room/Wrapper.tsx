@@ -7,13 +7,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Spinner } from "../Spinner";
 import { RoomDetails } from "../../api";
 import { RoomDetailsCard } from "./RoomDetails";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { roomDetailState } from "../../store/atoms";
 import { toast } from "sonner";
 import { CopyIcon } from "lucide-react";
 
 export function Wrapper() {
-  const [roomMeta, setRoomMeta] = useRecoilState(roomDetailState);
+  const setRoomMeta = useSetRecoilState(roomDetailState);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const query = useParams();

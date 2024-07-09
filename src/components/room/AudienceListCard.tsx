@@ -1,10 +1,8 @@
-import { useRecoilState, useRecoilValue } from "recoil";
-import { listenerState, wsState } from "../../store/atoms";
-import { useEffect } from "react";
+import { useRecoilValue } from "recoil";
+import { listenerState } from "../../store/atoms";
 
 export function Audience() {
-  const ws = useRecoilValue(wsState);
-  const [audienceName, setAudienceName] = useRecoilState(listenerState);
+  const audienceName = useRecoilValue(listenerState);
 
   return (
     <div className=" max-w-xl">

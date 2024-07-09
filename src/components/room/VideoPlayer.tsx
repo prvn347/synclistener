@@ -1,5 +1,5 @@
 import YouTube, { YouTubeProps } from "react-youtube";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {
   listenerState,
   userState,
@@ -21,7 +21,7 @@ export function VideoPlayer() {
   const [socket, setSocket] = useRecoilState(wsState);
   const [videoId, setVideoId] = useRecoilState(videoIdState);
   const [play, setPlay] = useState(false);
-  const [audienceName, setAudienceName] = useRecoilState(listenerState);
+  const setAudienceName = useSetRecoilState(listenerState);
   const playerRef = useRef<any>(null);
   const userName = useRecoilValue(userState);
   const [currentTime, setCurrentTime] = useState(0);
@@ -92,7 +92,7 @@ export function VideoPlayer() {
     }
   };
 
-  const onPlayerPause: YouTubeProps["onPause"] = (event) => {
+  const onPlayerPause: YouTubeProps["onPause"] = () => {
     console.log("pause");
     if (playerRef.current) {
       const time = playerRef.current.getCurrentTime();

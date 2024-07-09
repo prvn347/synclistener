@@ -20,7 +20,7 @@ export function Authentication({ type }: { type: "signin" | "signup" }) {
     email: "",
   });
   const navigate = useNavigate();
-  const { user, loading, error } = useAuth();
+  const { user } = useAuth();
   useEffect(() => {
     if (user?.name) {
       navigate("/home");

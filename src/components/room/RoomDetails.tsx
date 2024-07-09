@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight, SparklesIcon } from "lucide-react";
+import { SparklesIcon } from "lucide-react";
 import { Audience } from "./AudienceListCard";
 import { useRecoilValue } from "recoil";
 import { roomDetailState } from "../../store/atoms";
