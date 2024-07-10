@@ -1,7 +1,7 @@
 import { NoRoom } from "../components/Home/NoRoom";
 import { motion } from "framer-motion";
 import { routeVariants } from "../utils/AnimationVarient";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { pupulateRoom } from "../api";
 import { Rooms } from "../components/Roome/Rooms";
 import { useRecoilState } from "recoil";
