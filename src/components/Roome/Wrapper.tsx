@@ -47,7 +47,7 @@ export function Wrapper() {
           copy invite code <CopyIcon size={14} />
         </button>
       </div>
-      <div className=" m-1 sm:m-8 rounded-md bg-[#222222] p-3   sm:p-5 grid grid-cols-1 md:grid-cols-2">
+      <div className=" m-1 sm:m-8 rounded-md bg-[#222222] p-2   sm:p-5 grid grid-cols-1 md:grid-cols-2">
         <div>
           <VideoPlayer />
           <RoomDetailsCard />

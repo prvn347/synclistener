@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { useEffect } from "react";
+import { HeartIcon } from "lucide-react";
 
 export function LandingPage() {
   const { user } = useAuth();
@@ -44,6 +45,16 @@ export function LandingPage() {
             Explore Mini MVP
           </button>
         </div>
+      </div>
+      <div className=" flex justify-center font-manrope text-sm font-medium">
+        Made with &nbsp; <HeartIcon fill="red" size={18} /> &nbsp; by &nbsp;
+        <a
+          href="https://x.com/prvn347"
+          className=" font-semibold text-teal-500"
+        >
+          {" "}
+          Pravin
+        </a>
       </div>
     </div>
   );

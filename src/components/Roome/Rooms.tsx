@@ -4,10 +4,12 @@ import { Copy, PlusCircle } from "lucide-react";
 import { toast } from "sonner";
 import { useState } from "react";
 import { RoomForm, roomType } from "../Home/RoomForm";
+import { useNavigate } from "react-router-dom";
 
 export function Rooms() {
   const userRooms = useRecoilValue(userRoomsState);
   const [showForm, setShowForm] = useState(false);
+  const navigate = useNavigate();
   return (
     <div>
       <div className={`content-wrapper ${showForm ? "hide" : ""}`}>
@@ -22,12 +24,17 @@ export function Rooms() {
         </button>
         <div className=" grid grid-cols-2">
           {userRooms.map((value) => (
-            <div className=" bg-green-300 bg-opacity-30 border mx-2 border-green-600 p-6 rounded-sm">
+            <div
+              onClick={() => {
+                navigate(`/room/${value.roomKey}`);
+              }}
+              className=" cursor-pointer bg-teal-500 bg-opacity-30 border m-2 border-teal-600 p-6 rounded-sm"
+            >
               <div className=" flex flex-col  gap-2 items-center">
-                <span className=" text-black text-md font-manrope font-medium ">
+                <span className=" text-white text-md font-manrope font-medium ">
                   {value.title}
                 </span>
-                <span className=" flex items-center text-black text-md font-manrope font-medium ">
+                <span className=" flex items-center text-white text-md font-manrope font-medium ">
                   {value.roomKey}{" "}
                   <Copy
                     onClick={() => {

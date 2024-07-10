@@ -8,6 +8,7 @@ import usePreferredTheme from "./hooks/usePrefferedTheme";
 import { AnimatePresence } from "framer-motion";
 import { LocationProvider } from "./utils/LocationProvider";
 import { RoutesWithAnimation } from "./utils/RoutesWithAnimation";
+import { HeartIcon } from "lucide-react";
 function App() {
   const isDark = usePreferredTheme();
 
@@ -33,6 +34,27 @@ function App() {
             </BrowserRouter>
           </RecoilRoot>
           <Toaster />
+        </div>
+        {/* <div className=" text-end">
+          <button
+            onClick={async () => {
+              await logout();
+            }}
+            className=" font-manrope text-sm"
+          >
+            {" "}
+            Log out
+          </button>
+        </div> */}
+        <div className="  flex justify-center font-manrope text-sm font-medium">
+          Made with &nbsp; <HeartIcon fill="red" size={18} /> &nbsp; by &nbsp;
+          <a
+            href="https://x.com/prvn347"
+            className=" font-semibold text-teal-500"
+          >
+            {" "}
+            Pravin
+          </a>
         </div>
       </AnimatePresence>
     </>

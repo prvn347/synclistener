@@ -85,3 +85,12 @@ export const pupulateRoom = async () => {
     throw new Error("Something went wrong while sending waitlist");
   }
 };
+
+export const logout = async () => {
+  try {
+    const resp = await axiosInstance.get("/user/logout");
+    return resp;
+  } catch (error) {
+    throw new Error("Something went wrong while sending waitlist");
+  }
+};

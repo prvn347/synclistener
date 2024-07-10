@@ -125,7 +125,7 @@ export function VideoPlayer() {
   }, [play]);
   const opts: YouTubeProps["opts"] = {
     height: window.innerWidth <= 768 ? "190" : "300", // Adjust as needed
-    width: window.innerWidth <= 768 ? "300" : "550",
+    width: window.innerWidth <= 768 ? "280" : "550",
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
@@ -134,7 +134,7 @@ export function VideoPlayer() {
 
   return (
     <div className="">
-      <div className=" inline-block px-2 sm:px-3 py-1  mb-2 text-xs bg-blue-600 bg-opacity-15 text-white   rounded-2xl border border-blue-800">
+      <div className=" inline-block px-1 sm:px-3 py-1  mb-2 text-xs bg-blue-600 bg-opacity-15 text-white   rounded-2xl border border-blue-800">
         {" "}
         Tip: Play/pause after loading for better sync.
       </div>

@@ -9,7 +9,7 @@ export function AppBar() {
     <div className="  p-4 ">
       <div className=" flex justify-between ">
         <Link
-          className=" font-bold text-lg sm:text-2xl font-manrope dark:bg-gradient-to-r dark:from-white dark:to-green-500  bg-gradient-to-r from-green-700 to-black inline-block text-transparent bg-clip-text"
+          className=" font-bold text-lg sm:text-2xl font-manrope dark:bg-gradient-to-r dark:from-white dark:to-teal-500  bg-gradient-to-r from-teal-700 to-black inline-block text-transparent bg-clip-text"
           to={"/"}
         >
           SyncListener
