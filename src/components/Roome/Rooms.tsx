@@ -18,9 +18,9 @@ export function Rooms() {
           onClick={() => {
             setShowForm(true);
           }}
-          className=" flex font-manrope py-1 my-3  rounded-sm px-3 bg-black dark:bg-white text-white dark:text-black "
+          className=" flex items-center font-manrope py-1 my-3 gap-1 rounded-sm px-3 bg-black dark:bg-white text-white dark:text-black "
         >
-          Create New <PlusCircle />
+          Create New <PlusCircle size={20} />
         </button>
         <div className=" grid grid-cols-2">
           {userRooms.map((value) => (

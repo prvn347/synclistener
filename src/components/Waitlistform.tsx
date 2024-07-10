@@ -12,7 +12,7 @@ export function WaitlistForm() {
           <div className={` ${showForm ? " hidden" : ""} flex flex-col`}>
             {" "}
             <label className="font-bold font-manrope text-2xl text-black dark:text-white ">
-              Join the Waitlist for future updates.
+              Join the Waitlist for full product and future updates.
             </label>
             <input
               type="text"

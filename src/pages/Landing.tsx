@@ -30,7 +30,7 @@ export function LandingPage() {
             onClick={() => {
               navigate("/waitlist");
             }}
-            className=" m-2 hover:hover:shadow-[3px_3px_rgba(0,_98,_90,_0.4),_6px_6px_rgba(0,_98,_90,_0.3)] outline-none  focus:shadow-purple-700  px-4 text-white dark:text-black rounded-sm hover: bg-black dark:bg-white text-xl font-manrope font-semibold py-2"
+            className=" m-2 hover:hover:shadow-[3px_3px_rgba(0,_98,_90,_0.4),_6px_6px_rgba(0,_98,_90,_0.3)] outline-none  focus:shadow-purple-700  px-4 text-black dark:text-white rounded-sm hover: border dark:border-neutral-200 text-xl font-manrope font-semibold py-2"
           >
             Join waitlist
           </button>
@@ -41,7 +41,7 @@ export function LandingPage() {
             }}
             className=" m-2 hover:hover:shadow-[3px_3px_rgba(0,_98,_90,_0.4),_6px_6px_rgba(0,_98,_90,_0.3)] outline-none  focus:shadow-purple-700  px-4 text-white dark:text-black rounded-sm hover: bg-black dark:bg-white text-xl font-manrope font-semibold py-2"
           >
-            Explore Mini MVP
+            Explore
           </button>
         </div>
       </div>

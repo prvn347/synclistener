@@ -34,6 +34,15 @@ function App() {
             </BrowserRouter>
           </RecoilRoot>
           <Toaster />
+          <div className="  py-3 flex justify-center font-manrope text-sm font-medium">
+            Made with &nbsp; <HeartIcon fill="red" size={18} /> &nbsp; by &nbsp;
+            <a
+              href="https://x.com/prvn347"
+              className=" font-semibold text-teal-500"
+            >
+              Pravin
+            </a>
+          </div>
         </div>
         {/* <div className=" text-end">
           <button
@@ -46,16 +55,6 @@ function App() {
             Log out
           </button>
         </div> */}
-        <div className="  flex justify-center font-manrope text-sm font-medium">
-          Made with &nbsp; <HeartIcon fill="red" size={18} /> &nbsp; by &nbsp;
-          <a
-            href="https://x.com/prvn347"
-            className=" font-semibold text-teal-500"
-          >
-            {" "}
-            Pravin
-          </a>
-        </div>
       </AnimatePresence>
     </>
   );
