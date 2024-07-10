@@ -29,7 +29,7 @@ export function SearchBar() {
       <input
         id="textInput"
         onChange={(e) => setsearchInput(e.target.value)}
-        className="px-4 py-2 rounded-s-3xl  w-96 bg-transparent border border-1 border-slate-500 placeholder:text-slate-500 focus:border-blue-500 outline-none placeholder:px-2"
+        className="px-4 py-2 rounded-s-3xl text-neutral-200   w-96 bg-transparent border border-1 border-slate-500 placeholder:text-slate-500 focus:border-blue-500 outline-none placeholder:px-2"
         placeholder="Search "
         type="text"
       />

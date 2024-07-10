@@ -26,7 +26,7 @@ export function RoomDetailsCard() {
         </span>
       </div>
 
-      <div className=" text-xs">Listeners:</div>
+      <div className=" text-xs text-neutral-100">Listeners:</div>
       <Audience />
     </div>
   );
