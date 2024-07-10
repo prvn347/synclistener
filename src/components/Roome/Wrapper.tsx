@@ -36,7 +36,7 @@ export function Wrapper() {
   }
   return (
     <div className=" ">
-      <div className=" mx-8 text-start">
+      <div className=" mx-1 sm:mx-8 text-start">
         <button
           onClick={() => {
             navigator.clipboard.writeText(id as string);
@@ -47,7 +47,7 @@ export function Wrapper() {
           copy invite code <CopyIcon size={14} />
         </button>
       </div>
-      <div className=" m-8 rounded-md bg-[#222222]   p-5 grid grid-cols-1 md:grid-cols-2">
+      <div className=" m-1 sm:m-8 rounded-md bg-[#222222] p-3   sm:p-5 grid grid-cols-1 md:grid-cols-2">
         <div>
           <VideoPlayer />
           <RoomDetailsCard />

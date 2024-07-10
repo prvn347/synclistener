@@ -4,7 +4,7 @@ import { postType } from "../components/Auth/Authentication";
 
 export const axiosInstance = axios.create({
   baseURL: "https://synclistener-backend.onrender.com",
-
+  // baseURL: "http://localhost:3001",
   withCredentials: true,
 });
 

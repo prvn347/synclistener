@@ -22,7 +22,7 @@ export function ListCard() {
               console.log("sending videi id" + videoId);
               wss?.send(JSON.stringify({ type: "videoId", videoId }));
             }}
-            className=" flex  p-3 text-start cursor-pointer hover:bg-slate-900"
+            className=" flex p-1  sm:p-3 text-start cursor-pointer hover:bg-slate-900"
           >
             <img
               className=" rounded-md contain-content"
@@ -32,7 +32,7 @@ export function ListCard() {
               width={content.snippet.thumbnails.default.width}
             />
             <div className=" ps-2 flex flex-col">
-              <span className=" text-md text-neutral-100">
+              <span className=" text-xs sm:text-md text-neutral-100">
                 {content.snippet.title}
               </span>
               <span className=" text-xs py-1 font-light text-neutral-200">

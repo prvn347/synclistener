@@ -25,7 +25,7 @@ export function SearchBar() {
     handleHitEnter();
   }, []);
   return (
-    <div className="flex mx-4 m-3 ">
+    <div className="flex mx-4 m-3  justify-center">
       <input
         id="textInput"
         onChange={(e) => setsearchInput(e.target.value)}
