@@ -27,6 +27,7 @@ export function VideoPlayer() {
   const [currentTime, setCurrentTime] = useState(0);
   useEffect(() => {
     const ws = new WebSocket("wss://synclistener-backend.onrender.com");
+    // const ws = new WebSocket("ws://localhost:3001");
     ws.onopen = () => {
       console.log("Connection established");
       ws.send(
