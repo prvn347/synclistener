@@ -23,7 +23,7 @@ export function LandingPage() {
         </div>
         <div className=" p-5 text-lg ">
           {/* a simple voice room where you can listen to music together with sync. */}
-          Sync and enjoy music together in a simple voice room
+          Enjoy music and watch videos in sync with your loved ones
         </div>
         <div>
           <button
