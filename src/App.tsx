@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
-
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { AppBar } from "./components/Appbar";
 import { Toaster } from "sonner";
 import usePreferredTheme from "./hooks/usePrefferedTheme";
@@ -15,6 +15,7 @@ function App() {
   return (
     <>
       <AnimatePresence>
+        <SpeedInsights />
         <div className="fixed left-0 top-0 -z-10 h-full w-full">
           {isDark ? (
             <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
