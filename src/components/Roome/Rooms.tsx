@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { useState } from "react";
 import { RoomForm, roomType } from "../Home/RoomForm";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../../api";
 
 export function Rooms() {
   const userRooms = useRecoilValue(userRoomsState);
@@ -14,14 +15,27 @@ export function Rooms() {
     <div>
       <div className={`content-wrapper ${showForm ? "hide" : ""}`}>
         <h3 className=" font-manrope text-2xl m-3  ">Your rooms</h3>
-        <button
-          onClick={() => {
-            setShowForm(true);
-          }}
-          className=" flex items-center font-manrope py-1 my-3 gap-1 rounded-sm px-3 bg-black dark:bg-white text-white dark:text-black "
-        >
-          Create New <PlusCircle size={20} />
-        </button>
+        <div className=" flex justify-between">
+          <button
+            onClick={() => {
+              setShowForm(true);
+            }}
+            className=" flex items-center font-manrope py-1 my-3 gap-1 rounded-sm px-3 bg-black dark:bg-white text-white dark:text-black "
+          >
+            Create New <PlusCircle size={20} />
+          </button>
+          <div>
+            <button
+              onClick={async () => {
+                await logout();
+                window.location.href = "/";
+              }}
+              className=" font-manrope border px-3 py-1 border-rose-500 text-sm text-red-400 "
+            >
+              Log out
+            </button>
+          </div>
+        </div>
         <div className=" grid grid-cols-2">
           {userRooms.map((value) => (
             <div

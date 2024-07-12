@@ -125,7 +125,7 @@ export function VideoPlayer() {
     }
   }, [play]);
   const opts: YouTubeProps["opts"] = {
-    height: window.innerWidth <= 768 ? "190" : "300", // Adjust as needed
+    height: window.innerWidth <= 768 ? "200" : "300", // Adjust as needed
     width: window.innerWidth <= 768 ? "300" : "550",
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
