@@ -11,6 +11,7 @@ import { useSetRecoilState } from "recoil";
 import { roomDetailState } from "../../store/atoms";
 import { toast } from "sonner";
 import { CopyIcon } from "lucide-react";
+import { ChatWrapper } from "../Chat/ChatWrapper";
 
 export function Wrapper() {
   const setRoomMeta = useSetRecoilState(roomDetailState);
@@ -57,6 +58,7 @@ export function Wrapper() {
         <div className=" m-4 mt-4 md:mt-1">
           <SearchBar />
           <ListCard />
+          <ChatWrapper />
           <div className="  text-right">
             <button
               onClick={() => {

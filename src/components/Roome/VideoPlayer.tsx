@@ -2,6 +2,7 @@ import YouTube, { YouTubeProps } from "react-youtube";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {
   listenerState,
+  messageState,
   userState,
   videoIdState,
   wsState,
@@ -24,10 +25,11 @@ export function VideoPlayer() {
   const setAudienceName = useSetRecoilState(listenerState);
   const playerRef = useRef<any>(null);
   const userName = useRecoilValue(userState);
+  const [message, setMessage] = useRecoilState(messageState);
   const [currentTime, setCurrentTime] = useState(0);
   useEffect(() => {
-    const ws = new WebSocket("wss://synclistener-backend.onrender.com");
-    // const ws = new WebSocket("ws://localhost:3001");
+    // const ws = new WebSocket("wss://synclistener-backend.onrender.com");
+    const ws = new WebSocket("ws://localhost:3001");
     ws.onopen = () => {
       console.log("Connection established");
       ws.send(
@@ -51,6 +53,8 @@ export function VideoPlayer() {
         setVideoId(data.videoId);
       } else if (data.type === "userList") {
         setAudienceName(data.users.map((name: any) => ({ name })));
+      } else if (data.type === "message") {
+        setMessage(data.message);
       }
     };
     setSocket(ws);
