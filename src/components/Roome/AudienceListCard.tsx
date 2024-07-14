@@ -8,7 +8,7 @@ export function Audience() {
     <div className=" max-w-xl">
       {audienceName.map((value) => (
         <div className=" flex items-center ">
-          <div className="rounded-full h-8 w-8 bg-purple-600 flex justify-center mr-2">
+          <div className="rounded-full h-8 w-8 bg-teal-600 flex justify-center mr-2">
             <div className="flex flex-col justify-center h-full text-xl">
               {value.name[0]}
             </div>

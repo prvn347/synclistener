@@ -1,31 +1,42 @@
-import { useRecoilState, useRecoilValue } from "recoil";
-import { messageState, wsState } from "../../store/atoms";
+import { useRecoilValue } from "recoil";
+import { wsState } from "../../store/atoms";
 import { useState } from "react";
+import { userNameSelector } from "../../store/selectors";
 
 export function ChatInput() {
   const ws = useRecoilValue(wsState);
   const [message, setMessage] = useState("");
+  const user = useRecoilValue(userNameSelector);
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    if (ws) {
+      ws.send(
+        JSON.stringify({
+          type: "message",
+          params: { message: message, name: user },
+        })
+      );
+      setMessage("");
+    }
+  };
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="chat" className="sr-only">
         Your message
       </label>
-      <div className="flex items-center py-2 px-1 bg-gray-50 rounded-lg dark:bg-darkie">
-        <textarea
+      <div className="flex items-center py-2 px-1">
+        <input
           id="chat"
-          rows={1}
+          value={message}
           onChange={(e) => {
             setMessage(e.target.value);
           }}
-          className="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Your message..."
-        ></textarea>
+          className="block mx-4 p-2.5 w-full text-sm  bg-white rounded-3xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-teal-600 dark:bg-opacity-30 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Chat"
+        ></input>
         <button
           type="submit"
           className="inline-flex justify-center p-2 text-teal-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-teal-500 dark:hover:bg-gray-600"
-          onClick={() => {
-            ws?.send(JSON.stringify({ type: "message", message: message }));
-          }}
         >
           <svg
             className="w-6 h-6 rotate-90"
