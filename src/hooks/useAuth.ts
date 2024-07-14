@@ -7,12 +7,14 @@ export function useAuth() {
   const [user, setUser] = useRecoilState(userState);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   useEffect(() => {
     async function fetchUser() {
       try {
-        const user = await userDetails();
-        setUser(user.data.user);
+        const users = await userDetails();
+        setUser((prevState) => ({
+          ...prevState,
+          ...users.data.user,
+        }));
       } catch (err: any) {
         setError(err);
       } finally {

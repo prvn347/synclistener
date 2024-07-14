@@ -2,6 +2,7 @@ import YouTube, { YouTubeProps } from "react-youtube";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {
   listenerState,
+  messageState,
   userState,
   videoIdState,
   wsState,
@@ -24,6 +25,7 @@ export function VideoPlayer() {
   const setAudienceName = useSetRecoilState(listenerState);
   const playerRef = useRef<any>(null);
   const userName = useRecoilValue(userState);
+  const [messagee, setMessage] = useRecoilState(messageState);
   const [currentTime, setCurrentTime] = useState(0);
   useEffect(() => {
     const ws = new WebSocket("wss://synclistener-backend.onrender.com");
@@ -51,6 +53,9 @@ export function VideoPlayer() {
         setVideoId(data.videoId);
       } else if (data.type === "userList") {
         setAudienceName(data.users.map((name: any) => ({ name })));
+      } else if (data.type === "message") {
+        setMessage((prevMessages) => [...prevMessages, data.params]);
+        console.log(messagee);
       }
     };
     setSocket(ws);
@@ -74,6 +79,8 @@ export function VideoPlayer() {
           setVideoId(data.videoId);
         } else if (data.type === "userList") {
           setAudienceName(data.users.map((name: any) => ({ name })));
+        } else if (data.type === "message") {
+          setMessage((prevMessages) => [...prevMessages, data.params]);
         }
       };
     }
@@ -110,7 +117,7 @@ export function VideoPlayer() {
     }
   };
   0;
-  console.log(window.innerHeight, window.innerWidth);
+
   useEffect(() => {
     if (playerRef.current) {
       if (play) {
