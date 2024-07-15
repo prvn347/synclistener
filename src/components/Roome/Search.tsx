@@ -28,6 +28,7 @@ export function SearchBar() {
     <div className="flex mx-4 m-3  justify-center ">
       <input
         id="textInput"
+        autoComplete="off"
         onChange={(e) => setsearchInput(e.target.value)}
         className="px-4 py-2 rounded-s-3xl text-neutral-200  w-52  sm:w-96 bg-transparent border border-1 border-slate-500 placeholder:text-slate-500 focus:border-blue-500 outline-none placeholder:px-2"
         placeholder="Search "

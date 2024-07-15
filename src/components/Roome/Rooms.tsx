@@ -30,7 +30,7 @@ export function Rooms() {
                 await logout();
                 window.location.href = "/";
               }}
-              className=" font-manrope border px-3 py-1 border-rose-500 text-sm text-red-400 "
+              className=" font-manrope border hover:bg-white hover:text-red-500 px-3 py-1 bg-red-500 text-white border-rose-500 text-sm dark:text-white "
             >
               Log out
             </button>
@@ -42,7 +42,7 @@ export function Rooms() {
               onClick={() => {
                 navigate(`/room/${value.roomKey}`);
               }}
-              className=" cursor-pointer bg-teal-500 bg-opacity-30 border m-2 border-teal-600 p-6 rounded-sm"
+              className=" cursor-pointer bg-teal-500 bg-opacity-80 dark:bg-opacity-30 border m-2 border-teal-600 p-6 rounded-sm"
             >
               <div className=" flex flex-col  gap-2 items-center">
                 <span className=" text-white text-md font-manrope font-medium ">
