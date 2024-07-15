@@ -59,7 +59,10 @@ export function VideoPlayer() {
       }
     };
     setSocket(ws);
-    return () => ws.close();
+    return () => {
+      ws.close();
+      setMessage([]);
+    };
   }, []);
 
   useEffect(() => {
