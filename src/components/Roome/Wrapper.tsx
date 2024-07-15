@@ -55,10 +55,10 @@ export function Wrapper() {
 
           {/* <div className=" font-manrope text-xl">Your Playlist</div> */}
         </div>
-        <div className=" m-4 mt-4 md:mt-1">
+        <div className=" my-4 mx-1 md:mx-4 mt-4 md:mt-1">
+          <ChatWrapper />
           <SearchBar />
           <ListCard />
-          <ChatWrapper />
           <div className="  text-right">
             <button
               onClick={() => {

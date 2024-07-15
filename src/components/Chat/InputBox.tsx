@@ -20,18 +20,19 @@ export function ChatInput() {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form autoComplete="off" onSubmit={handleSubmit}>
       <label htmlFor="chat" className="sr-only">
         Your message
       </label>
       <div className="flex items-center py-2 px-1">
         <input
+          autoComplete="off"
           id="chat"
           value={message}
           onChange={(e) => {
             setMessage(e.target.value);
           }}
-          className="block mx-4 p-2.5 w-full text-sm  bg-white rounded-3xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-teal-600 dark:bg-opacity-30 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="block mx-4 p-2.5  w-full text-sm   rounded-3xl border   bg-teal-600 bg-opacity-30 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
           placeholder="Chat"
         ></input>
         <button

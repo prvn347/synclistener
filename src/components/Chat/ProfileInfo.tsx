@@ -15,7 +15,9 @@ export function ProfileInfoChat() {
   return (
     <>
       <div className=" text-start font-manrope ">
-        <h2 className=" py-1 border-b border-slate-600 font-manrope ">Chat</h2>
+        <h2 className=" py-1 border-b border-slate-600 font-manrope text-white ">
+          Chat
+        </h2>
       </div>
       <div
         ref={containerRef}
@@ -35,7 +37,7 @@ export function ProfileInfoChat() {
                 </span>
               </div>
             </div>
-            <span className="text-xs">{value.message}</span>
+            <span className="text-xs text-neutral-200">{value.message}</span>
           </div>
         ))}
       </div>

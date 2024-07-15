@@ -136,7 +136,7 @@ export function VideoPlayer() {
   }, [play]);
   const opts: YouTubeProps["opts"] = {
     height: window.innerWidth <= 768 ? "200" : "300", // Adjust as needed
-    width: window.innerWidth <= 768 ? "300" : "550",
+    width: window.innerWidth <= 768 ? "320" : "550",
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
