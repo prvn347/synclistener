@@ -2,21 +2,23 @@ import { useEffect, useState } from "react";
 import { ListCard } from "./ListCard";
 import { SearchBar } from "./Search";
 import { VideoPlayer } from "./VideoPlayer";
-
 import { useNavigate, useParams } from "react-router-dom";
 import { Spinner } from "../Spinner";
 import { RoomDetails } from "../../api";
 import { RoomDetailsCard } from "./RoomDetails";
-import { useSetRecoilState } from "recoil";
-import { roomDetailState } from "../../store/atoms";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { hostNameState, roomDetailState } from "../../store/atoms";
 import { toast } from "sonner";
 import { CopyIcon } from "lucide-react";
 import { ChatWrapper } from "../Chat/ChatWrapper";
+import { userNameSelector } from "../../store/selectors";
 
 export function Wrapper() {
   const setRoomMeta = useSetRecoilState(roomDetailState);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const host = useRecoilValue(hostNameState);
+  const user = useRecoilValue(userNameSelector);
   const query = useParams();
   const id = query.id;
   useEffect(() => {
@@ -24,6 +26,7 @@ export function Wrapper() {
       const resp = await RoomDetails(id as string);
 
       setRoomMeta(resp.data);
+
       setLoading(false);
     };
     fetchData();
@@ -57,7 +60,7 @@ export function Wrapper() {
         </div>
         <div className=" my-4 mx-1 md:mx-4 mt-4 md:mt-1">
           <ChatWrapper />
-          <SearchBar />
+          {host === user ? <SearchBar /> : null}
           <ListCard />
           <div className="  text-right">
             <button

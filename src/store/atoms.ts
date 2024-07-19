@@ -47,3 +47,7 @@ export const userRoomsState = atom<RoomDetailType[]>({
   key: "userRoomState",
   default: [],
 });
+export const hostNameState = atom<string | undefined>({
+  key: "hostNameState",
+  default: "",
+});
