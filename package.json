@@ -18,6 +18,7 @@
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.2.13",
+    "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
     "lucide": "^0.397.0",
     "lucide-react": "^0.398.0",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/bcryptjs": "^2.4.6",
+    "@types/js-cookie": "^3.0.6",
     "@types/lodash": "^4.17.6",
     "@types/node": "^20.14.9",
     "@types/react": "^18.2.66",

@@ -1,5 +1,5 @@
 import { useRecoilValue } from "recoil";
-import { wsState } from "../../store/atoms";
+import { hiddenState, wsState } from "../../store/atoms";
 import { useState } from "react";
 import { userNameSelector } from "../../store/selectors";
 
@@ -7,6 +7,7 @@ export function ChatInput() {
   const ws = useRecoilValue(wsState);
   const [message, setMessage] = useState("");
   const user = useRecoilValue(userNameSelector);
+  const hide = useRecoilValue(hiddenState);
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (ws) {
@@ -20,7 +21,11 @@ export function ChatInput() {
     }
   };
   return (
-    <form autoComplete="off" onSubmit={handleSubmit}>
+    <form
+      className={` toggle-content ${hide ? "hidden" : "block"}`}
+      autoComplete="off"
+      onSubmit={handleSubmit}
+    >
       <label htmlFor="chat" className="sr-only">
         Your message
       </label>

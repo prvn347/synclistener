@@ -1,11 +1,11 @@
 import { useRecoilValue } from "recoil";
-import { messageState } from "../../store/atoms";
+import { hiddenState, messageState } from "../../store/atoms";
 import { useEffect, useRef } from "react";
 
 export function ProfileInfoChat() {
   const messageMeta = useRecoilValue(messageState);
   const containerRef = useRef<any>(null);
-
+  const hide = useRecoilValue(hiddenState);
   useEffect(() => {
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
@@ -14,14 +14,11 @@ export function ProfileInfoChat() {
 
   return (
     <>
-      <div className=" text-start font-manrope ">
-        <h2 className=" py-1 border-b border-slate-600 font-manrope text-white ">
-          Chat
-        </h2>
-      </div>
       <div
         ref={containerRef}
-        className="flex flex-col h-96 overflow-y-scroll gap-3 text-wrap text-start"
+        className={`flex toggle-content flex-col h-96 overflow-y-scroll gap-3 text-wrap text-start ${
+          hide ? "hidden" : "block"
+        } `}
       >
         {messageMeta.map((value, index) => (
           <div key={index} className="flex gap-3 font-manrope items-baseline">

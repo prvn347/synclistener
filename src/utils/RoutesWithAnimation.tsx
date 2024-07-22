@@ -7,6 +7,7 @@ import { Home } from "../pages/Home";
 import { RoomInvite } from "../pages/RoomInvite";
 import { Error } from "../pages/Error";
 import { Waitlist } from "../pages/WaitlistPage";
+import { InviteLinks } from "../pages/InviteLink";
 
 export function RoutesWithAnimation() {
   const location = useLocation();
@@ -19,6 +20,7 @@ export function RoutesWithAnimation() {
 
       <Route path="/signin" element={<Auth type="signin" />} />
       <Route path="/signup" element={<Auth type="signup" />} />
+      <Route path="/invite/:id" element={<InviteLinks />} />
       <Route element={<ProtectedRoute />}>
         <Route path="/room/:id" element={<Room />} />
         <Route path="/home" element={<Home />} />

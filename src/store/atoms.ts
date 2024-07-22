@@ -51,3 +51,7 @@ export const hostNameState = atom<string | undefined>({
   key: "hostNameState",
   default: "",
 });
+export const hiddenState = atom({
+  key: "hiddenState",
+  default: false,
+});
