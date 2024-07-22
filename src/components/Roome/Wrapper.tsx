@@ -16,9 +16,9 @@ import { userNameSelector } from "../../store/selectors";
 export function Wrapper() {
   const setRoomMeta = useSetRecoilState(roomDetailState);
   const [menuActive, setMenuActive] = useState(false);
-  const handleToggleMenu = () => {
-    setMenuActive((menuActive) => !menuActive);
-  };
+  // const handleToggleMenu = () => {
+  //   setMenuActive((menuActive) => !menuActive);
+  // };
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const host = useRecoilValue(hostNameState);
