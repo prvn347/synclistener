@@ -71,7 +71,7 @@ export function Wrapper() {
           onClick={() => {
             navigator.clipboard.writeText(id as string);
             toast("Code copied!");
-            setMenuActive(true);
+            // setMenuActive(true);
           }}
           className=" flex items-center gap-2 text-white hover:bg-green-800 bg-black  dark:bg-white dark:text-black rounded-sm text-sm font-manrope px-2 py-1"
         >
