@@ -1,5 +1,5 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { SparklesIcon } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useRecoilValue } from "recoil";
 import { hostNameState, listenerState, wsState } from "../store/atoms";
 import { userNameSelector } from "../store/selectors";
@@ -19,10 +19,12 @@ export default function DropDownAudience() {
               <div className="inline-flex h-full w-full cursor-pointer justify-center rounded-full bg-white px-3 py-1 text-xs font-medium leading-5 text-slate-600 backdrop-blur-xl dark:bg-black dark:text-slate-200">
                 {host} is hosting
                 <span className="inline-flex items-center pl-2 text-black dark:text-white">
-                  <SparklesIcon
-                    className="pl-0.5 text-black dark:text-white"
-                    size={16}
-                  />
+                  {host === user && (
+                    <ChevronDown
+                      className="pl-0.5 text-black dark:text-white"
+                      size={16}
+                    />
+                  )}
                 </span>
               </div>
             </span>
@@ -46,7 +48,7 @@ export default function DropDownAudience() {
                       JSON.stringify({
                         type: "transferHost",
                         params: {
-                          newHostName: "pravin",
+                          newHostName: value.name,
                         },
                       })
                     );

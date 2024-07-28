@@ -59,6 +59,8 @@ export function VideoPlayer() {
       } else if (data.type === "message") {
         setMessage((prevMessages) => [...prevMessages, data.params]);
         console.log(messagee);
+      } else if (data.type === "transferHost") {
+        setHostName(data.params.newHostName);
       }
     };
     setSocket(ws);
@@ -85,8 +87,13 @@ export function VideoPlayer() {
           setVideoId(data.videoId);
         } else if (data.type === "userList") {
           setAudienceName(data.users.map((name: any) => ({ name })));
+
+          setHostName(data.host);
         } else if (data.type === "message") {
           setMessage((prevMessages) => [...prevMessages, data.params]);
+        } else if (data.type === "transferHost") {
+          console.log("transferred host is " + data.params.newHostName);
+          setHostName(data.params.newHostName);
         }
       };
     }
